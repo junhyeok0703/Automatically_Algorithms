@@ -30,18 +30,20 @@ def dfs(V):
 visited_bfs = [False] * (N + 1)
 
 def bfs(V):
-    queue = deque([V])
-    visited_bfs[V] = True
-    while queue:
-        current = queue.popleft()
+    queue = deque([V]) # 처음에 방문한 친구 큐에 넣어
+    visited_bfs[V] = True # 처음 방문한 친구 방문했다고해
+    while queue:# q가 없을떄까지
+        current = queue.popleft()# 큐Pop해서 v에 넣고 출력해
         print(current, end=' ')  # 공백을 출력에 추가
-        for next_vertex in maplist[current]:
-            if not visited_bfs[next_vertex]:
-                queue.append(next_vertex)
-                visited_bfs[next_vertex] = True
+        for next_vertex in maplist[current]:# 큐pop인덱스를 그래프에 넣고 확인해
+            # 계속 bfs pop한거의 인접리스트 다 보고 또 그다음에 방문안한곳가서
+            # 인접리스트 다보고
+            if not visited_bfs[next_vertex]:# 만약 list안에 방문하지않았을경우
+                queue.append(next_vertex)#큐에다가 삽입하고
+                visited_bfs[next_vertex] = True# 방문했다고해
 
-# 결과 출력
+
 dfs(V)
-print()  # 줄바꿈
+print()  
 bfs(V)
 print()  # 줄바꿈
