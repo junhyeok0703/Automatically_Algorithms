@@ -1,10 +1,11 @@
 def solution(array, commands):
-    answer=[]
+    answer = []
     for i in commands:
-        start = i[0]-1
-        end = i[1]
-        a= array[start:end]
-        a.sort()
-        idx = i[2]
-        answer.append(a[idx-1])
+        
+        i0 = i[0]-1
+        i1 = i[1]
+        arr = array[i0:i1].copy()
+        arr1 = sorted(arr)
+        i2 = i[2]-1
+        answer.append(arr1[i2])
     return answer
