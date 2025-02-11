@@ -1,0 +1,22 @@
+-- 코드를 작성해주세요
+# 쿼리를 작성하는 목표, 확인할 지표:
+# 쿼리 계산 방법:
+# 데이터의 기간:
+# join key:
+# 데이터 특징:
+WITH FISH_INFO AS (
+SELECT
+   ID,
+   FISH_TYPE,
+   IF(LENGTH<=10 OR LENGTH IS NULL,10,LENGTH) AS LENGTH,
+   TIME
+FROM FISH_INFO
+)
+SELECT 
+    COUNT(ID) AS FISH_COUNT,
+    MAX(LENGTH) AS MAX_LENGTH,
+    FISH_TYPE
+FROM FISH_INFO
+GROUP BY FISH_TYPE
+HAVING AVG(LENGTH) >=33
+ORDER BY FISH_TYPE
